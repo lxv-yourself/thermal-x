@@ -1,0 +1,109 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Google Fonts — Inter + JetBrains Mono */
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;600&display=swap');
+
+:root {
+  --background: #f5f5dc; /* beige */
+  --foreground: #f5ede0;
+  --surface-primary: #1a1108;
+  --surface-secondary: #221709;
+  --surface-card: #2a1e0c;
+  --border-warm: #3d2c14;
+  --border-subtle: #261a0a;
+  --accent-amber: #f59e0b;
+  --accent-orange: #ea580c;
+  --accent-gold: #d97706;
+  --text-muted: #8a7060;
+}
+
+html {
+  font-size: 15px;
+}
+
+body {
+  color: var(--foreground);
+  background: var(--background);
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+  overflow-x: hidden;
+}
+
+/* Custom warm scrollbars */
+::-webkit-scrollbar {
+  width: 7px;
+  height: 7px;
+}
+::-webkit-scrollbar-track {
+  background: #1a1108;
+}
+::-webkit-scrollbar-thumb {
+  background: #3d2c14;
+  border-radius: 4px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: #5a3f1e;
+}
+
+/* Leaflet warm theme */
+.leaflet-container {
+  background: #0d0905 !important;
+  font-family: 'Inter', inherit;
+}
+
+.leaflet-popup-content-wrapper {
+  background: #1a1108 !important;
+  color: #f5ede0 !important;
+  border: 1px solid #3d2c14 !important;
+  border-radius: 10px !important;
+  box-shadow: 0 12px 30px -5px rgba(0, 0, 0, 0.85) !important;
+}
+
+.leaflet-popup-tip {
+  background: #1a1108 !important;
+  border: 1px solid #3d2c14 !important;
+}
+
+.leaflet-control-zoom a {
+  background: #221709 !important;
+  color: #f5ede0 !important;
+  border-color: #3d2c14 !important;
+}
+.leaflet-control-zoom a:hover {
+  background: #3d2c14 !important;
+}
+
+/* Warm pulse animation for critical thermal markers */
+@keyframes thermal-pulse {
+  0% {
+    transform: scale(0.95);
+    box-shadow: 0 0 0 0 rgba(234, 88, 12, 0.75);
+  }
+  70% {
+    transform: scale(1.12);
+    box-shadow: 0 0 0 14px rgba(234, 88, 12, 0);
+  }
+  100% {
+    transform: scale(0.95);
+    box-shadow: 0 0 0 0 rgba(234, 88, 12, 0);
+  }
+}
+
+.marker-pulse-critical {
+  animation: thermal-pulse 1.8s infinite;
+  border-radius: 50%;
+}
+
+/* Warm glow on focus */
+input:focus, select:focus, textarea:focus {
+  outline: none;
+  box-shadow: 0 0 0 2px rgba(245, 158, 11, 0.35);
+}
+
+/* Smooth transitions */
+*, *::before, *::after {
+  transition-property: background-color, border-color, color, box-shadow, opacity, transform;
+  transition-duration: 150ms;
+  transition-timing-function: ease;
+}
